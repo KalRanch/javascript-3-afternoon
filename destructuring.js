@@ -2,7 +2,6 @@
   Once you complete a problem, refresh ./destructuring.html in your browser and check to see if the problem's test(s) are passing.
   Passed tests will be indicated by a green circle.
   Failed tests will be indicated by a red X.
-
   You can refresh the page at any time to re-run all the tests.
 */
 
@@ -22,7 +21,7 @@ var carDetails = {
 */
 
 //Code Here
-
+var { color, make, model, year } = carDetails;
 
 
 ////////// PROBLEM 2 //////////
@@ -33,9 +32,10 @@ var carDetails = {
   The property names are firstName, lastName, and title.
 */
 
-function greeting( obj ) {
+function greeting(obj) {
   //Code Here
-  
+  var { firstName, lastName, title } = obj;
+
   // Do not edit the code below.
   return 'Hello, ' + title + ' ' + firstName + ' ' + lastName + '!';
   // Do not edit the code above.
@@ -54,7 +54,11 @@ function greeting( obj ) {
 */
 
 //Code Here
-
+function totalPopulation(obj) {
+  var { utah, california, texas, arizona } = obj;
+  total = utah + california + texas + arizona;
+  return total;
+}
 
 
 ////////// PROBLEM 4 //////////
@@ -68,35 +72,70 @@ function greeting( obj ) {
 */
 
 //Code Here
-
+function ingredients(obj) {
+  var { carb, fat, protein } = obj;
+  var arr = [carb, fat, protein];
+  return arr;
+}
 
 
 ////////// PROBLEM 5 //////////
 
 /*
-  Now we will use object destructuring as the function's parameter instead of destructuring the object inside of the function declaration.
+  Now we will use object destructuring as the function's parameter 
+  instead of destructuring the object inside of the function declaration.
   Example:
     function example( {one, two, three} ) {
       return one + two + three
     }
-
-  Write a function called largeNumbers that will take a destructured object as it's parameter.
-  The object properties will be named first, second, and third and their values will be numbers.
+  Write a function called largeNumbers that will take a destructured object
+   as it's parameter.
+  The object properties will be named first, second, and third and their 
+  values will be numbers.
   Find the smallest number of the three and return that number.
 */
 
 //Code Here
+function largeNumbers({ first, second, third }) {
 
+  if (first < second && first < third) {
+    return first;
+  }
+  else if (second < first && second < third) {
+    return second;
+  }
+  else if (third < first && third < second) {
+    return third
+  };
+}
 
-
+// var testObj ={
+//   first: 1,
+//   second: 2,
+//   third: 5
+// }
+// var {first, second, third} = testObj;
+// console.log("this is the right answer" +largeNumbers({first, second, third}));
 ////////// PROBLEM 6 //////////
 
 /*
-  Write a function called numberGroups that will take a destructured object as it's parameter.
-  The object properties will be named a, b, and c and their values will be arrays of numbers.
+  Write a function called numberGroups that will take a destructured object as
+   it's parameter.
+  The object properties will be named a, b, and c and their values will be 
+  arrays of numbers.
   Find the longest array and return that array.
 */
 
 //Code Here
 
-
+function numberGroups({ a, b, c }) {
+  if (a.length > b.length && a.length > c.length) {
+    return a;
+  }
+  else if (b.length > a.length && b.length > c.length) {
+    return b;
+  }
+  else if (c.length > a.length && c.length > b.length) {
+    return c;
+  }
+}
